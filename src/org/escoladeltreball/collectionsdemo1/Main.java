@@ -13,12 +13,23 @@ import java.util.List;
  *
  */
 public class Main {
-
+	
+	public static List<String> subLlista(List<String> list, String str) {
+		List<String> search = new LinkedList<>();
+		for (String string : list) {
+			if (string.matches(str + ".*")) {
+				search.add(string);
+			}
+		}
+		return search;
+	}
+	
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
 		List<String> list = new LinkedList<>();
+		List<String> sublist;
 		
 		list.add("Zulu");
 		list.add("Alpha");
@@ -26,14 +37,21 @@ public class Main {
 		list.add("Echo");
 		list.add("Charlie");
 		list.add("Bravo");
-			
-		Collections.sort(list);
+		list.add("Alhaurín");
+		list.add("Albacete");
+//			
+//		Collections.sort(list);
+//		
+//		for (String string : list) {
+//			System.out.println(string);
+//		}
+//		
+//		list.remove("Charlie");
 		
-		for (String string : list) {
+		sublist = Main.subLlista(list, "Al");
+		for (String string : sublist) {
 			System.out.println(string);
 		}
-		
-		list.remove("Charlie");
 		
 	}
 
